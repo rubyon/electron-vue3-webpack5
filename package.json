@@ -60,7 +60,7 @@
     },
     "linux": {
       "target": "AppImage",
-      "icon": "./src/renderer/assets/icons/256x256.png"
+      "icon": "./src/renderer/assets/icons/icon.icns"
     },
     "win": {
       "target": "portable",
