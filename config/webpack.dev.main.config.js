@@ -50,6 +50,6 @@ module.exports = merge({
   },
   plugins: [
     new webpack.DefinePlugin({ WDS_PORT: wdsPort }),
-    new ESLintPlugin()
+    new ESLintPlugin({ formatter: 'codeframe' })
   ]
 })
