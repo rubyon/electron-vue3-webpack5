@@ -1,18 +1,15 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+import SocketIO from '../components/SocketIO.vue'
 
-Vue.use(Router)
+const routes = [
+  {
+    path: '/',
+    component: SocketIO,
+    name: 'SocketIO'
+  }
+]
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'landing-page',
-      component: require('@/components/LandingPage').default
-    },
-    {
-      path: '*',
-      redirect: '/'
-    }
-  ]
+export const router = createRouter({
+  history: createWebHistory(),
+  routes
 })
