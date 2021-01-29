@@ -2,13 +2,13 @@
 const { spawn } = require('child_process')
 const webpack = require('webpack')
 const WDS = require('webpack-dev-server')
+const { say } = require('cfonts')
+const chalk = require('chalk')
 const rendererConf = require('./webpack.dev.renderer.config.js')
 const appConf = require('./config')
-const { runWebpack } = require('./utils')
-const { say } = require('cfonts')
-const chalk = require('chalk');
 
-(async () => {
+const { runWebpack } = require('./utils')
+;(async () => {
   console.log(chalk.yellowBright.bold('[Webpack] compiling main...'))
   await runWebpack(require('./webpack.dev.main.config'))
 
@@ -28,13 +28,19 @@ const chalk = require('chalk');
 
     console.log(chalk.blueBright.bold('[WDS] started'))
     console.log(chalk.blueBright.bold('[App] starting...'))
-    const app = spawn('electron', ['dist/main.js',
-      (appConf.pauseAtStart ? '--inspect-brk' : '--inspect') + `=${appConf.mainDebugPort}`,
-            `--remote-debugging-port=${appConf.rendererDebugPort}`
-    ],
-    {
-      stdio: 'inherit'
-    })
+    const app = spawn(
+      'electron',
+      [
+        'dist/main.js',
+        `${appConf.pauseAtStart ? '--inspect-brk' : '--inspect'}=${
+          appConf.mainDebugPort
+        }`,
+        `--remote-debugging-port=${appConf.rendererDebugPort}`
+      ],
+      {
+        stdio: 'inherit'
+      }
+    )
     app.on('close', () => {
       console.log(chalk.red.bold('[App] stopped'))
       wds.close()
@@ -42,7 +48,7 @@ const chalk = require('chalk');
   })
 })()
 
-function greeting () {
+function greeting() {
   const cols = process.stdout.columns
   let text
 

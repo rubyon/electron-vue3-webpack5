@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron'
 
-async function createWindow () {
+async function createWindow() {
   const mainWindow = new BrowserWindow({
     height: 563,
     useContentSize: true,
@@ -10,15 +10,22 @@ async function createWindow () {
       enableRemoteModule: true
     }
   })
-  mainWindow.webContents.on('new-window', e => e.preventDefault())
+  mainWindow.webContents.on('new-window', (e) => e.preventDefault())
   mainWindow.removeMenu()
-  if (!app.isPackaged) { mainWindow.webContents.openDevTools({ mode: 'right' }) }
 
   if (app.isPackaged) {
     await mainWindow.loadFile('./index.html')
   } else {
+    const installExtension = require('electron-devtools-installer')
+    installExtension
+      .default(installExtension.VUEJS_DEVTOOLS)
+      .then(() => {})
+      .catch((err) => {
+        console.log('Unable to install `vue-devtools`: \n', err)
+      })
     // eslint-disable-next-line no-undef
     await mainWindow.loadURL(`http://localhost:${WDS_PORT}`)
+    mainWindow.webContents.openDevTools({ mode: 'right' })
   }
   mainWindow.show()
 }
@@ -30,14 +37,4 @@ app.on('window-all-closed', () => {
   // }
 })
 
-app.on('ready', () => {
-  createWindow().then()
-  if (!app.isPackaged) {
-    const installExtension = require('electron-devtools-installer')
-    installExtension.default(installExtension.VUEJS_DEVTOOLS)
-      .then(() => {})
-      .catch(err => {
-        console.log('Unable to install `vue-devtools`: \n', err)
-      })
-  }
-})
+app.on('ready', createWindow)

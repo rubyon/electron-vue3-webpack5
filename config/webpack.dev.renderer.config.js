@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const merge = require('./webpack.base.config')
 const { absPath } = require('./utils')
 const { appName, devSourceMap } = require('./config')
@@ -13,15 +14,6 @@ module.exports = merge({
     rules: [
       {
         test: /\.js$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        use: {
-          loader: 'eslint-loader',
-          options: { formatter: require('eslint-friendly-formatter') }
-        }
-      },
-      {
-        test: /\.js$/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -32,8 +24,7 @@ module.exports = merge({
                   targets: 'defaults'
                 }
               ]
-            ],
-            plugins: ['@babel/transform-runtime']
+            ]
           }
         },
         exclude: /node_modules/
@@ -67,7 +58,8 @@ module.exports = merge({
     new HtmlWebpackPlugin({
       template: absPath('src/index.html'),
       title: appName
-    })
+    }),
+    new ESLintPlugin({ formatter: 'codeframe' })
   ],
   resolve: {
     alias: {
