@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  parser: 'vue-eslint-parser',
   parserOptions: {
     parser: 'babel-eslint',
     sourceType: 'module'
@@ -9,20 +10,21 @@ module.exports = {
     node: true
   },
   extends: [
-    'standard',
-    'plugin:vue/recommended',
-    'plugin:json/recommended'
+    'airbnb-base',
+    'plugin:vue/essential',
+    'plugin:prettier/recommended'
   ],
+  plugins: ['import'],
+  rules: {
+    'global-require': 0,
+    'import/no-extraneous-dependencies': 0,
+    'import/newline-after-import': 0,
+    'import/no-unresolved': 0,
+    'no-param-reassign': 0,
+    'no-use-before-define': 0,
+    'no-console': 0
+  },
   globals: {
     __static: true
-  },
-  plugins: ['import', 'html'],
-  rules: {
-    // allow paren-less arrow functions
-    'arrow-parens': 0,
-    // allow async-await
-    'generator-star-spacing': 0,
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
 }

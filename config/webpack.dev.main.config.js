@@ -1,16 +1,18 @@
+const webpack = require('webpack')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const fs = require('fs')
 const { absPath } = require('./utils')
 const merge = require('./webpack.base.config')
-const webpack = require('webpack')
 const { wdsPort, devSourceMap } = require('./config')
-const fs = require('fs')
+
 const nodeModules = {}
 
 fs.readdirSync('node_modules')
-  .filter(function (x) {
+  .filter((x) => {
     return ['.bin'].indexOf(x) === -1
   })
-  .forEach(function (mod) {
-    nodeModules[mod] = 'commonjs ' + mod
+  .forEach((mod) => {
+    nodeModules[mod] = `commonjs ${mod}`
   })
 
 module.exports = merge({
@@ -23,30 +25,19 @@ module.exports = merge({
     rules: [
       {
         test: /\.js$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        use: {
-          loader: 'eslint-loader',
-          options: {
-            formatter: require('eslint-friendly-formatter')
-          }
-        }
-      },
-      {
-        test: /\.js$/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env',
+              [
+                '@babel/preset-env',
                 {
                   targets: {
                     node: 7
                   }
                 }
               ]
-            ],
-            plugins: ['@babel/transform-runtime']
+            ]
           }
         },
         exclude: /node_modules/
@@ -58,8 +49,7 @@ module.exports = merge({
     path: absPath('dist')
   },
   plugins: [
-    new webpack.DefinePlugin({
-      WDS_PORT: wdsPort
-    })
+    new webpack.DefinePlugin({ WDS_PORT: wdsPort }),
+    new ESLintPlugin({ formatter: 'codeframe' })
   ]
 })
