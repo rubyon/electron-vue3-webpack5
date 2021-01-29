@@ -16,7 +16,7 @@ module.exports = {
   globals: {
     __static: true
   },
-  plugins: ['import', 'html'],
+  plugins: ['import', 'vue', 'html'],
   rules: {
     // allow paren-less arrow functions
     'arrow-parens': 0,
