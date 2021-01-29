@@ -3,6 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const merge = require('./webpack.base.config')
 const { absPath } = require('./utils')
 const { appName, devSourceMap } = require('./config')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = merge({
   mode: 'development',
@@ -11,15 +12,6 @@ module.exports = merge({
   entry: './src/renderer/main.js',
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        use: {
-          loader: 'eslint-loader',
-          options: { formatter: require('eslint-friendly-formatter') }
-        }
-      },
       {
         test: /\.js$/,
         use: {
@@ -67,7 +59,8 @@ module.exports = merge({
     new HtmlWebpackPlugin({
       template: absPath('src/index.html'),
       title: appName
-    })
+    }),
+    new ESLintPlugin()
   ],
   resolve: {
     alias: {

@@ -2,6 +2,8 @@ const { absPath } = require('./utils')
 const merge = require('./webpack.base.config')
 const webpack = require('webpack')
 const { wdsPort, devSourceMap } = require('./config')
+const ESLintPlugin = require('eslint-webpack-plugin')
+
 const fs = require('fs')
 const nodeModules = {}
 
@@ -21,17 +23,6 @@ module.exports = merge({
   entry: './src/main/index.js',
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        enforce: 'pre',
-        exclude: /node_modules/,
-        use: {
-          loader: 'eslint-loader',
-          options: {
-            formatter: require('eslint-friendly-formatter')
-          }
-        }
-      },
       {
         test: /\.js$/,
         use: {
@@ -58,8 +49,7 @@ module.exports = merge({
     path: absPath('dist')
   },
   plugins: [
-    new webpack.DefinePlugin({
-      WDS_PORT: wdsPort
-    })
+    new webpack.DefinePlugin({ WDS_PORT: wdsPort }),
+    new ESLintPlugin()
   ]
 })
