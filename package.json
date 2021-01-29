@@ -1,0 +1,90 @@
+{
+  "name": "electron-vue-webpack-5",
+  "version": "0.0.1",
+  "description": "electron-vue-webpack-5 sample project",
+  "main": "main.js",
+  "repository": "https://github.com/rubyon/electron-vue-webpack-5",
+  "author": "RubyOn",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node ./config/dev.js",
+    "build": "node ./config/build.js",
+    "build:clean": "node ./config/clean.js"
+  },
+  "dependencies": {
+    "vue": "^2.6.12",
+    "vue-router": "^3.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.18.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-vue": "^7.5.0",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "electron": "^11.2.1",
+    "electron-log": "^4.3.1",
+    "electron-devtools-installer": "^3.1.1",
+    "electron-builder": "^22.9.1",
+    "html-webpack-plugin": "^4.5.1",
+    "style-loader": "^2.0.0",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.18.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-dev-middleware": "^4.1.0",
+    "webpack-merge": "^5.7.3",
+    "copy-webpack-plugin": "^7.0.0",
+    "chalk": "^4.1.0",
+    "cfonts": "^2.9.1",
+    "del": "^6.0.0"
+  },
+  "build": {
+    "buildDependenciesFromSource": true,
+    "appId": "com.rubyon.app",
+    "directories": {
+      "output": "build"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "./src/renderer/assets/icons/256x256.png"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "./src/renderer/assets/icons/icon.ico"
+    },
+    "mac": {
+      "identity": null,
+      "target": {
+        "target": "dmg",
+        "arch": "arm64"
+      },
+      "icon": "./src/renderer/assets/icons/icon.icns"
+    },
+    "files": [
+      "package.json",
+      {
+        "from": "dist",
+        "filter": [
+          "renderer.js",
+          "main.js",
+          "index.html",
+          "images/*.*"
+        ]
+      }
+    ]
+  }
+}
