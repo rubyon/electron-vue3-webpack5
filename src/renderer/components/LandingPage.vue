@@ -6,18 +6,16 @@
         src="~@/assets/logo.png"
         alt="electron-vue"
         width="400px"
-      >
+      />
     </div>
-    <div class="text">
-      {{ greeting }} Webpack 5
-    </div>
+    <div class="text">{{ greeting }} Webpack 5</div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'LandingPage',
-  data: function () {
+  data() {
     return {
       greeting: 'Electron VueJS'
     }
