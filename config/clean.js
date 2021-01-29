@@ -9,7 +9,7 @@ greeting()
 
 del.sync(['build/*', 'dist/*'])
 
-function greeting () {
+function greeting() {
   const cols = process.stdout.columns
   let text
 

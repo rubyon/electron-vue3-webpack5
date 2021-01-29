@@ -2,11 +2,11 @@ const path = require('path')
 const { spawnSync } = require('child_process')
 const webpack = require('webpack')
 
-function absPath (p) {
+function absPath(p) {
   return path.resolve(__dirname, '..', p)
 }
 
-function shellDo (cmd, conf) {
+function shellDo(cmd, conf) {
   conf = conf || {}
   const env = conf.env || process.env
 
@@ -20,22 +20,22 @@ function shellDo (cmd, conf) {
   }
 }
 
-async function webpackAsync (conf) {
-  return new Promise(resolve => {
+async function webpackAsync(conf) {
+  return new Promise((resolve) => {
     webpack(conf, (err, stats) => {
       resolve({ err, stats })
     })
   })
 }
 
-async function runWebpack (conf) {
+async function runWebpack(conf) {
   const statsConf = conf.stats || {}
   const { err, stats } = await webpackAsync(conf)
   if (err) {
     console.error(err.toString())
     process.exit(1)
   }
-  console.log(stats.toString(statsConf) + '\n')
+  console.log(`${stats.toString(statsConf)}\n`)
   if (stats.hasErrors()) {
     process.exit(1)
   }
