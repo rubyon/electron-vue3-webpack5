@@ -60,7 +60,7 @@ module.exports = merge({
       template: absPath('src/index.html'),
       title: appName
     }),
-    new ESLintPlugin()
+    new ESLintPlugin({ formatter: 'eslint-friendly-formatter' })
   ],
   resolve: {
     alias: {
