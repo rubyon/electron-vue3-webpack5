@@ -1,15 +1,19 @@
 <template>
-  <div id="app">
-    <router-view />
+  <div>
+    <TCPListener></TCPListener>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+import { defineComponent } from 'vue'
+import TCPListener from './components/TCPListener.vue'
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    TCPListener
+  }
+})
 </script>
 
-<style>
-/* CSS */
-</style>
+<style></style>

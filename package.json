@@ -1,5 +1,5 @@
 {
-  "name": "electron-vue-webpack-5",
+  "name": "electron-vue3-webpack5",
   "version": "0.0.1",
   "description": "electron-vue-webpack-5 sample project",
   "main": "main.js",
@@ -9,48 +9,48 @@
   "scripts": {
     "dev": "node ./config/dev.js",
     "build": "node ./config/build.js",
-    "build:clean": "node ./config/clean.js"
+    "clean": "node ./config/clean.js"
   },
   "dependencies": {
-    "vue": "^2.6.12",
-    "vue-router": "^3.5.1"
+    "jquery":"^3.5.1",
+    "popper.js": "^1.16.1",
+    "bootstrap": "^4.6.0",
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "babel-loader": "^8.2.2",
-    "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.18.0",
-    "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-html": "^6.1.1",
+    "eslint-webpack-plugin": "^2.4.3",
     "eslint-plugin-vue": "^7.5.0",
-    "eslint-plugin-json": "^2.1.2",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-standard": "^5.0.0",
+    "prettier": "^2.2.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-webpack": "^0.13.0",
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
     "electron": "^11.2.1",
     "electron-log": "^4.3.1",
     "electron-devtools-installer": "^3.1.1",
     "electron-builder": "^22.9.1",
-    "html-webpack-plugin": "^4.5.1",
+    "html-webpack-plugin": "^5.0.0-beta.6",
     "style-loader": "^2.0.0",
-    "vue-loader": "^15.9.6",
+    "vue-loader": "^16.1.2",
+    "@vue/compiler-sfc": "^3.0.5",
     "vue-template-compiler": "^2.6.12",
+    "vue-eslint-parser": "^7.4.1",
     "webpack": "^5.18.0",
-    "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-dev-middleware": "^4.1.0",
     "webpack-merge": "^5.7.3",
-    "copy-webpack-plugin": "^7.0.0",
     "chalk": "^4.1.0",
     "cfonts": "^2.9.1",
-    "del": "^6.0.0"
+    "del": "^6.0.0",
+    "cross-spawn": "^7.0.3"
   },
   "build": {
     "buildDependenciesFromSource": true,
@@ -60,11 +60,11 @@
     },
     "linux": {
       "target": "AppImage",
-      "icon": "./src/renderer/assets/icons/256x256.png"
+      "icon": "./src/renderer/assets/icons/icon.icns"
     },
     "win": {
       "target": "portable",
-      "icon": "./src/renderer/assets/icons/icon.ico"
+      "icon": "./src/renderer/assets/icons/icon.png"
     },
     "mac": {
       "identity": null,

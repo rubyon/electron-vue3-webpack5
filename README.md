@@ -1,17 +1,17 @@
-# Electron Vue Webpack 5 Boilerplate
-This boilerplate use **Electron** 11.2.1, **Vue.js** 2.6.12, **Webpack** 5.18.0 version.
+# 📦 Electron Vue3 Webpack5 Boilerplate
+This boilerplate use **Electron** 11.x, **Vue.js** 3.x, **Webpack** 5.x version.
 
 and
 
-**Babel** 7.12.10
-**ESlint** 7.18.0
-with **vue-router**
+**Babel** 7.x
+**ESlint** 7.x
+with **vue-router** 4.x
 
 # Use...
 ```bash
-git clone https://github.com/rubyon/electron-vue-webpack-5.git
+git clone https://github.com/rubyon/electron-vue3-webpack5.git
 
-cd electron-vue-webpack-5
+cd electron-vue3-webpack5
 
 # Install packages
 yarn

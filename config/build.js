@@ -6,15 +6,15 @@ const { shellDo, runWebpack } = require('./utils')
 
 greeting()
 
-function buildElectron () {
-  const env = Object.assign({}, process.env)
+function buildElectron() {
+  const env = { ...process.env }
 
   console.log(chalk.yellow.bold('[ElectronBuilder] building electron...'))
   shellDo('electron-builder', { env })
 }
 
-(async () => {
-  console.log(chalk.blue.bold(('[Webpack] compiling for main...')))
+;(async () => {
+  console.log(chalk.blue.bold('[Webpack] compiling for main...'))
   await runWebpack(require('./webpack.prod.main.config'))
 
   console.log(chalk.blue.bold('[Webpack] compiling for renderer...'))
@@ -23,7 +23,7 @@ function buildElectron () {
   buildElectron()
 })()
 
-function greeting () {
+function greeting() {
   const cols = process.stdout.columns
   let text
 
