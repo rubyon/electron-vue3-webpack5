@@ -31,13 +31,15 @@ app.on('window-all-closed', () => {
 })
 
 app.on('ready', () => {
-  createWindow().then()
-  if (!app.isPackaged) {
-    const installExtension = require('electron-devtools-installer')
-    installExtension.default(installExtension.VUEJS_DEVTOOLS)
-      .then(() => {})
-      .catch(err => {
-        console.log('Unable to install `vue-devtools`: \n', err)
-      })
-  }
+  createWindow().then(function (value) {
+    if (!app.isPackaged) {
+      const installExtension = require('electron-devtools-installer')
+      installExtension.default(installExtension.VUEJS_DEVTOOLS)
+        .then(() => {})
+        .catch(err => {
+          console.log('Unable to install `vue-devtools`: \n', err)
+        })
+    }
+  }, function (reason) {
+  })
 })
