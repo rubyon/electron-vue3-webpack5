@@ -1,16 +1,9 @@
 <template>
   <div id="app">
     <div>
-      <img
-        id="logo"
-        src="~@/assets/logo.png"
-        alt="electron-vue"
-        width="400px"
-      >
+      <img id="logo" src="~@/assets/logo.png" alt="electron-vue" width="400px" />
     </div>
-    <div class="text">
-      {{ greeting }} Webpack 5
-    </div>
+    <div class="text">{{ greeting }} Webpack 5</div>
   </div>
 </template>
 

@@ -29,7 +29,8 @@ module.exports = merge({
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env',
+              [
+                '@babel/preset-env',
                 {
                   targets: {
                     node: 7

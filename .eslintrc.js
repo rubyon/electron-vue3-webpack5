@@ -10,14 +10,17 @@ module.exports = {
   },
   extends: [
     'standard',
+    'eslint:recommended',
     'plugin:vue/recommended',
-    'plugin:json/recommended'
+    'plugin:json/recommended',
+    'plugin:prettier/recommended'
   ],
   globals: {
     __static: true
   },
-  plugins: ['import', 'vue'],
+  plugins: ['import', 'prettier', 'json'],
   rules: {
+    'prettier/prettier': 'error',
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await
