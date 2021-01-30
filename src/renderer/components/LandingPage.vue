@@ -13,36 +13,36 @@
 </template>
 
 <script>
-  export default {
-    name: 'LandingPage',
-    data: function () {
-      return {
-        greeting: 'Electron VueJS'
-      }
+export default {
+  name: 'LandingPage',
+  data: function () {
+    return {
+      greeting: 'Electron VueJS'
     }
   }
+}
 </script>
 
 <style>
-  body {
-    margin: 0;
-  }
+body {
+  margin: 0;
+}
 
-  #app {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: white;
-  }
+#app {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+}
 
-  .text {
-    margin-top: 10px;
-    font-size: 48px;
-    font-weight: bold;
-    font-family: Arial;
-    color: #26a69a;
-  }
+.text {
+  margin-top: 10px;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: Arial;
+  color: #26a69a;
+}
 </style>
