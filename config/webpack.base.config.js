@@ -8,7 +8,7 @@ module.exports = (conf) =>
         extensions: ['.js', '.vue', 'html'],
         alias: {
           '@': absPath('src'),
-          vue$: 'vue/dist/vue.esm.js'
+          vue: '@vue/runtime-dom'
         }
       },
       stats: {

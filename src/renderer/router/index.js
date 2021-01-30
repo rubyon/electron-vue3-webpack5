@@ -1,18 +1,16 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+import LandingPage from '../components/LandingPage.vue'
 
-Vue.use(Router)
+const routes = [
+  {
+    path: '/',
+    component: LandingPage,
+    name: 'LandingPage'
+  }
+]
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'landing-page',
-      component: require('@/components/LandingPage').default
-    },
-    {
-      path: '*',
-      redirect: '/'
-    }
-  ]
+// eslint-disable-next-line import/prefer-default-export
+export const router = createRouter({
+  history: createWebHistory(),
+  routes
 })
