@@ -36,7 +36,7 @@ const chalk = require('chalk')
         `--remote-debugging-port=${appConf.rendererDebugPort}`
       ],
       {
-        // stdio: 'inherit'
+        stdio: 'inherit'
       }
     )
     app.on('close', () => {
