@@ -1,23 +1,17 @@
 <template>
   <div id="app">
     <div>
-      <img
-        id="logo"
-        src="~@/assets/logo.png"
-        alt="electron-vue"
-        width="400px"
-      />
+      <img id="logo" src="~@/assets/logo.png" alt="electron-vue" width="400" />
     </div>
     <div class="text">{{ greeting }} Webpack 5</div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'LandingPage',
+module.exports = {
   data() {
     return {
-      greeting: 'Electron VueJS'
+      greeting: 'Electron VueJS3'
     }
   }
 }
@@ -27,7 +21,6 @@ export default {
 body {
   margin: 0;
 }
-
 #app {
   width: 100vw;
   min-height: 100vh;
@@ -37,7 +30,6 @@ body {
   flex-direction: column;
   background: white;
 }
-
 .text {
   margin-top: 10px;
   font-size: 48px;
