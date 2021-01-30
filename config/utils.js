@@ -1,5 +1,5 @@
 const path = require('path')
-const { spawnSync } = require('child_process')
+const { spawn } = require('cross-spawn')
 const webpack = require('webpack')
 
 function absPath(p) {
@@ -10,7 +10,7 @@ function shellDo(cmd, conf) {
   conf = conf || {}
   const env = conf.env || process.env
 
-  const p = spawnSync(cmd, {
+  const p = spawn.sync(cmd, {
     shell: true,
     stdio: 'inherit',
     env
