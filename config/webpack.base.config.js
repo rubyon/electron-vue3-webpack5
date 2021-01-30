@@ -1,5 +1,5 @@
-const { absPath } = require('./utils')
 const { merge } = require('webpack-merge')
+const { absPath } = require('./utils')
 
 module.exports = (conf) =>
   merge(

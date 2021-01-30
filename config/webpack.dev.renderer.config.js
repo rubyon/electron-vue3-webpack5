@@ -1,9 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const merge = require('./webpack.base.config')
 const { absPath } = require('./utils')
 const { appName, devSourceMap } = require('./config')
-const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = merge({
   mode: 'development',

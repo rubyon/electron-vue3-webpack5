@@ -1,10 +1,10 @@
+const webpack = require('webpack')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const fs = require('fs')
 const { absPath } = require('./utils')
 const merge = require('./webpack.base.config')
-const webpack = require('webpack')
 const { wdsPort, devSourceMap } = require('./config')
-const ESLintPlugin = require('eslint-webpack-plugin')
 
-const fs = require('fs')
 const nodeModules = {}
 
 fs.readdirSync('node_modules')
@@ -12,7 +12,7 @@ fs.readdirSync('node_modules')
     return ['.bin'].indexOf(x) === -1
   })
   .forEach(function (mod) {
-    nodeModules[mod] = 'commonjs ' + mod
+    nodeModules[mod] = `commonjs ${mod}`
   })
 
 module.exports = merge({

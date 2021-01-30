@@ -15,7 +15,7 @@
 <script>
 export default {
   name: 'LandingPage',
-  data: function () {
+  data() {
     return {
       greeting: 'Electron VueJS'
     }

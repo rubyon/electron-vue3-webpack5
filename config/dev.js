@@ -2,12 +2,12 @@
 const { spawn } = require('child_process')
 const webpack = require('webpack')
 const WDS = require('webpack-dev-server')
-const rendererConf = require('./webpack.dev.renderer.config.js')
-const appConf = require('./config')
-const { runWebpack } = require('./utils')
 const { say } = require('cfonts')
 const chalk = require('chalk')
+const rendererConf = require('./webpack.dev.renderer.config.js')
+const appConf = require('./config')
 
+const { runWebpack } = require('./utils')
 ;(async () => {
   console.log(chalk.yellowBright.bold('[Webpack] compiling main...'))
   await runWebpack(require('./webpack.dev.main.config'))
@@ -32,8 +32,9 @@ const chalk = require('chalk')
       'electron',
       [
         'dist/main.js',
-        (appConf.pauseAtStart ? '--inspect-brk' : '--inspect') +
-          `=${appConf.mainDebugPort}`,
+        `${appConf.pauseAtStart ? '--inspect-brk' : '--inspect'}=${
+          appConf.mainDebugPort
+        }`,
         `--remote-debugging-port=${appConf.rendererDebugPort}`
       ],
       {

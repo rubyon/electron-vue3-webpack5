@@ -35,7 +35,7 @@ async function runWebpack(conf) {
     console.error(err.toString())
     process.exit(1)
   }
-  console.log(stats.toString(statsConf) + '\n')
+  console.log(`${stats.toString(statsConf)}\n`)
   if (stats.hasErrors()) {
     process.exit(1)
   }

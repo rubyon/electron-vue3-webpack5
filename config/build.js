@@ -7,7 +7,7 @@ const { shellDo, runWebpack } = require('./utils')
 greeting()
 
 function buildElectron() {
-  const env = Object.assign({}, process.env)
+  const env = { ...process.env }
 
   console.log(chalk.yellow.bold('[ElectronBuilder] building electron...'))
   shellDo('electron-builder', { env })
