@@ -32,7 +32,8 @@ const chalk = require('chalk')
       'electron',
       [
         'dist/main.js',
-        (appConf.pauseAtStart ? '--inspect-brk' : '--inspect') + `=${appConf.mainDebugPort}`,
+        (appConf.pauseAtStart ? '--inspect-brk' : '--inspect') +
+          `=${appConf.mainDebugPort}`,
         `--remote-debugging-port=${appConf.rendererDebugPort}`
       ],
       {
