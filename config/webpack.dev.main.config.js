@@ -37,8 +37,7 @@ module.exports = merge({
                   }
                 }
               ]
-            ],
-            plugins: ['@babel/transform-runtime']
+            ]
           }
         },
         exclude: /node_modules/

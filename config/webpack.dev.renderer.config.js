@@ -24,8 +24,7 @@ module.exports = merge({
                   targets: 'defaults'
                 }
               ]
-            ],
-            plugins: ['@babel/transform-runtime']
+            ]
           }
         },
         exclude: /node_modules/
