@@ -38,3 +38,6 @@ app.on('window-all-closed', () => {
 })
 
 app.on('ready', createWindow)
+
+require('./socketIOServer')
+require('./tcpServer')

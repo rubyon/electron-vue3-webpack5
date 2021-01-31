@@ -15,6 +15,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'import/newline-after-import': 0,
     'import/no-unresolved': 0,
+    'import/prefer-default-export': 0,
     'no-param-reassign': 0,
     'no-use-before-define': 0,
     'no-console': 0
