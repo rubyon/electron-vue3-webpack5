@@ -9,12 +9,7 @@ module.exports = {
     browser: true,
     node: true
   },
-  extends: [
-    'airbnb-base',
-    'plugin:vue/essential',
-    'plugin:prettier/recommended'
-  ],
-  plugins: ['import'],
+  extends: ['eslint:recommended', 'airbnb-base', 'plugin:prettier/recommended'],
   rules: {
     'global-require': 0,
     'import/no-extraneous-dependencies': 0,
