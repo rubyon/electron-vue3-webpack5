@@ -1,5 +1,5 @@
 #! /bin/env node
-const { spawn } = require('child_process')
+const { spawn } = require('cross-spawn')
 const webpack = require('webpack')
 const WDS = require('webpack-dev-server')
 const { say } = require('cfonts')

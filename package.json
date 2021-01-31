@@ -1,9 +1,9 @@
 {
-  "name": "electron-vue-webpack-5",
+  "name": "electron-vue2-webpack5",
   "version": "0.0.1",
-  "description": "electron-vue-webpack-5 sample project",
+  "description": "electron-vue2-webpack5 sample project",
   "main": "main.js",
-  "repository": "https://github.com/rubyon/electron-vue-webpack-5",
+  "repository": "https://github.com/rubyon/electron-vue3-webpack5",
   "author": "RubyOn",
   "license": "MIT",
   "scripts": {
@@ -23,8 +23,8 @@
     "eslint": "^7.18.0",
     "eslint-webpack-plugin": "^2.4.3",
     "eslint-plugin-vue": "^7.5.0",
-    "prettier":"^2.2.1",
-    "eslint-plugin-prettier":"^3.3.1",
+    "prettier": "^2.2.1",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -45,7 +45,8 @@
     "webpack-merge": "^5.7.3",
     "chalk": "^4.1.0",
     "cfonts": "^2.9.1",
-    "del": "^6.0.0"
+    "del": "^6.0.0",
+    "cross-spawn": "^7.0.3"
   },
   "build": {
     "buildDependenciesFromSource": true,
@@ -59,7 +60,7 @@
     },
     "win": {
       "target": "portable",
-      "icon": "./src/renderer/assets/icons/icon.ico"
+      "icon": "./src/renderer/assets/icons/icon.png"
     },
     "mac": {
       "identity": null,
