@@ -21,6 +21,7 @@ module.exports = {
 body {
   margin: 0;
 }
+
 #app {
   width: 100vw;
   min-height: 100vh;
@@ -30,6 +31,7 @@ body {
   flex-direction: column;
   background: white;
 }
+
 .text {
   margin-top: 10px;
   font-size: 48px;
